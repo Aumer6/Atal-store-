@@ -1,16 +1,16 @@
-async function addProduct(){
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Upload Image</title>
+</head>
+<body>
 
-    let formData = new FormData();
+  <h2>Upload Image</h2>
 
-    formData.append("name", name.value);
-    formData.append("price", price.value);
-    formData.append("category", category.value);
-    formData.append("image", image.files[0]);
+  <form action="/upload" method="POST" enctype="multipart/form-data">
+    <input type="file" name="image" required />
+    <button type="submit">Upload</button>
+  </form>
 
-    await fetch("http://localhost:3000/add-product",{
-        method:"POST",
-        body:formData
-    });
-
-    alert("Added");
-}
+</body>
+</html>
