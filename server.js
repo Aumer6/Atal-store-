@@ -1,13 +1,18 @@
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
+// serve static files (css, js, images)
+app.use(express.static(__dirname));
+
+// homepage
 app.get("/", (req, res) => {
-  res.send("Atel Store Server is Running 🚀");
+  res.sendFile(path.join(__dirname, "index.html"));
 });
 
 const PORT = process.env.PORT || 3000;
